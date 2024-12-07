@@ -1,0 +1,132 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fix the position at the bottom */
+    bottom: 0; /* Align to the bottom */
+    width: 100%; /* Full width */
+    background-color: #f8f8f8; /* Optional: Background color for footer */
+    padding: 10px 0; /* Reduced padding for the footer */
+    perspective: 1000px; /* Added perspective for 3D effect */
+    transition: 0.5s;
+}
+
+.sci {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items */
+}
+
+.sci li {
+    list-style: none;
+    position: relative; /* Make li position relative for absolute positioning of text */
+
+}
+
+.sci li::before {
+    content: attr(data-text);
+    font-size: 1em; /* Adjust font size */
+    font-weight: 700;
+    color: #fff; /* Text color */
+    margin-top: 100px; /* Space between icon and text */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s; /* Transition for opacity */
+}
+
+.sci li:hover::before {
+    opacity: 0.9;
+    transform: translate(-50%, calc(-50% + 150px));
+}
+
+.sci li a {
+    position: relative;
+    display: inline-block;
+    width: 80px; /* Adjusted width */
+    height: 80px; /* Adjusted height */
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 20px; /* Adjusted margin */
+    font-size: 3em; /* Adjusted font size */
+    transform-style: preserve-3d;
+    perspective: 500px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    transition: background 0.25s, transform 0.5s; /* Added transform transition */
+}
+
+
+.sci li a:hover {
+    transform: rotateY(20deg) translateZ(20px); /* 3D effect on hover */
+}
+
+.js-tilt-glare {
+    border-radius: 10px;
+}
+
+.sci li a:hover.facebook {
+    background: #1877f2;
+}
+
+.sci li a:hover.whatsapp {
+    background: #25D366;
+}
+
+.sci li a:hover.instagram {
+    background: #e4405f;
+}
+
+.sci li a:hover.linkedin {
+    background: #0099ff;
+}
+
+.sci li a .fa {
+    transition: 0.25s;
+    pointer-events: none;
+}
+
+.sci li a:hover .fa {
+    color: #fff;
+    transform: scale(1.55) translateZ(50px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sci li a {
+        width: 100px; /* Smaller width for tablets */
+        height: 100px; /* Smaller height for tablets */
+        font-size: 3em; /* Smaller font size for tablets */
+        margin: 15px; /* Adjusted margin for tablets */
+    }
+
+    .sci li::before {
+        font-size: 10vw; /* Adjusted font size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .sci li a {
+        width: 80px; /* Smaller width for mobile */
+        height: 80px; /* Smaller height for mobile */
+        font-size: 2.5em; /* Smaller font size for mobile */
+        margin: 10px; /* Adjusted margin for mobile */
+    }
+
+    .sci li::before {
+        font-size: 8vw; /* Adjusted font size for mobile */
+    }
+}
